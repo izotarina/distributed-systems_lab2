@@ -7,18 +7,17 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 public class AirportListWritable implements Writable {
-    // Some data
     private int airportId;
-    private  timestamp;
+    private String airportName;
 
     public void write(DataOutput out) throws IOException {
         out.writeInt(airportId);
-        out.writeLong(timestamp);
+        out.writeChars(airportName);
     }
 
     public void readFields(DataInput in) throws IOException {
         airportId = in.readInt();
-        timestamp = in.readLong();
+        airportName = in.readLine();
     }
 
     public static AirportListWritable read(DataInput in) throws IOException {

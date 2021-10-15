@@ -6,16 +6,19 @@ import java.io.IOException;
 
 public class AirportFlightsWritable {
     private int airportId;
-    private String airportName;
+    private boolean isCanceled;
+    private int delayTime;
 
     public void write(DataOutput out) throws IOException {
         out.writeInt(airportId);
-        out.writeChars(airportName);
+        out.writeBoolean(isCanceled);
+        out.writeInt(delayTime);
     }
 
     public void readFields(DataInput in) throws IOException {
         airportId = in.readInt();
-        airportName = in.readLine();
+        isCanceled = in.readBoolean();
+        delayTime = in.readInt();
     }
 
     public static AirportFlightsWritable read(DataInput in) throws IOException {

@@ -8,15 +8,15 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 
-public class WordCountApp {
+public class AirportDelayApp {
     public static void main(String[] args) throws Exception {
         if (args.length != 2) {
-            System.err.println("Usage: lab2.WordCountApp <input path> <output path>");
+            System.err.println("Usage: lab2.AirportDelayApp <input path> <output path>");
             System.exit(-1);
         }
         Job job = Job.getInstance();
-        job.setJarByClass(WordCountApp.class);
-        job.setJobName("Word count");
+        job.setJarByClass(AirportDelayApp.class);
+        job.setJobName("Ai");
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
         job.setMapperClass(WordMapper.class);

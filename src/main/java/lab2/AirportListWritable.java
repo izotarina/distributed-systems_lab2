@@ -8,16 +8,16 @@ import java.io.IOException;
 
 public class AirportListWritable implements Writable {
     // Some data
-    private int counter;
-    private long timestamp;
+    private int airportId;
+    private  timestamp;
 
     public void write(DataOutput out) throws IOException {
-        out.writeInt(counter);
+        out.writeInt(airportId);
         out.writeLong(timestamp);
     }
 
     public void readFields(DataInput in) throws IOException {
-        counter = in.readInt();
+        airportId = in.readInt();
         timestamp = in.readLong();
     }
 

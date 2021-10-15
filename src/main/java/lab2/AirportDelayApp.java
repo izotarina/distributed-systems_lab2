@@ -16,7 +16,7 @@ public class AirportDelayApp {
         }
         Job job = Job.getInstance();
         job.setJarByClass(AirportDelayApp.class);
-        job.setJobName("Ai");
+        job.setJobName("Airport delay");
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
         job.setMapperClass(WordMapper.class);

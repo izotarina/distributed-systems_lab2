@@ -8,13 +8,17 @@ import java.io.IOException;
 
 public class AirportFlightsWritable implements Writable {
     private int airportId;
-    private boolean isCanceled;
+    private int isCanceled;
     private int delayTime;
 
-    public AirportFlightsWritable(int airportId, boolean isCanceled, int delayTime) {
+    public AirportFlightsWritable(int airportId, int isCanceled, int delayTime) {
         this.airportId = airportId;
         this.isCanceled = isCanceled;
         this.delayTime = delayTime;
+    }
+
+    public int getDelayTime() {
+        return delayTime;
     }
 
     public void write(DataOutput out) throws IOException {

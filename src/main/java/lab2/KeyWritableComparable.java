@@ -33,17 +33,6 @@ public class KeyWritableComparable implements WritableComparable<KeyWritableComp
     }
 
     @Override
-    public boolean equals(Object o)
-    {Rules for creating custom Hadoop Writable
-        if (o instanceof KeyWritableComparable)
-        {
-            KeyWritableComparable other = (KeyWritableComparable) o;
-            return ipaddress.equals(other.ipaddress) && timestamp.equals(other.timestamp);
-        }
-        return false;
-    }
-
-    @Override
     public int hashCode() {
         return airportID.hashCode();
     }

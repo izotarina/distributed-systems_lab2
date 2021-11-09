@@ -15,6 +15,10 @@ public class AirportListWritable implements Writable {
         this.airportName = airportName;
     }
 
+    public String getAirportName() {
+        return airportName;
+    }
+
     public void write(DataOutput out) throws IOException {
         out.writeInt(airportId);
         out.writeChars(airportName);

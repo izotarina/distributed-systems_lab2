@@ -14,8 +14,8 @@ public class FlightsMapper extends Mapper<LongWritable, Text, KeyWritableCompara
 
         if (key.get() != 0) {
             context.write(
-                    new KeyWritableComparable(Integer.parseInt(columns[0]), 1),
-                    new AirportListWritable(Integer.parseInt(columns[0]), columns[1]).getAirportName()
+                    new KeyWritableComparable(Integer.parseInt(columns[14]), 1),
+                    new AirportFlightsWritable(Integer.parseInt(columns[14]), columns[1]).getAirportName()
             );
         }
     }

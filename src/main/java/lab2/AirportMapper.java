@@ -12,9 +12,9 @@ public class AirportMapper extends Mapper<LongWritable, Text, Text, IntWritable>
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String inputLine = value.toString();
         String[] columns = inputLine.split(",");
-        for (String word: words) {
-            word = word.toLowerCase();
-            context.write(new Text(word),new IntWritable(1));
+
+        if (key.get() != 0) {
+            
         }
     }
 }

@@ -14,14 +14,14 @@ public class KeyWritableComparable implements WritableComparable<KeyWritableComp
 
     @Override
     public void readFields(DataInput in) throws IOException {
-        airportID.readFields(in);
-        isFlightData.readFields(in);
+        airportID = in.readInt();
+        isFlightData = in.readInt();
     }
 
     @Override
     public void write(DataOutput out) throws IOException {
-        airportID.write(out);
-        isFlightData.write(out);
+        out.writeInt(airportID);
+        out.writeInt(isFlightData);
     }
 
     @Override
@@ -30,10 +30,5 @@ public class KeyWritableComparable implements WritableComparable<KeyWritableComp
             return airportID - o.airportID;
         }
         return isFlightData - o.isFlightData;
-    }
-
-    @Override
-    public int hashCode() {
-        return airportID.hashCode();
     }
 }

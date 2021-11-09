@@ -1,12 +1,14 @@
 package lab2;
 
+import org.apache.hadoop.io.WritableComparable;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class KeyWritableComparable {
+public class KeyWritableComparable implements WritableComparable<KeyWritableComparable> {
     private int airportID;
-    private boolean isFlightData;
+    private int isFlightData;
 
     public KeyWritableComparable() {}
 
@@ -24,11 +26,10 @@ public class KeyWritableComparable {
 
     @Override
     public int compareTo(KeyWritableComparable o) {
-        if (ipaddress.compareTo(o.ipaddress)==0)
-        {
-            return (timestamp.compareTo(o.timestamp));
+        if (airportID != o.airportID) {
+            return airportID - o.airportID;
         }
-        else return (ipaddress.compareTo(o.ipaddress));
+        return isFlightData - o.isFlightData;
     }
 
     @Override

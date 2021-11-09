@@ -10,7 +10,9 @@ public class KeyWritableComparable implements WritableComparable<KeyWritableComp
     private int airportID;
     private int isFlightData;
 
-    public KeyWritableComparable() {}
+    public KeyWritableComparable() {
+
+    }
 
     @Override
     public void readFields(DataInput in) throws IOException {

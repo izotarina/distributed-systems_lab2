@@ -1,5 +1,7 @@
 package lab2;
 
+import java.io.DataInput;
+import java.io.DataOutput;
 import java.io.IOException;
 
 public class KeyWritableComparable {
@@ -14,26 +16,20 @@ public class KeyWritableComparable {
     //It de-serializes the byte stream data
     public void readFields(DataInput in) throws IOException
     {
-        ipaddress.readFields(in);
-        timestamp.readFields(in);
-        reqDate.readFields(in);
-        reqNo.readFields(in);
-        siteURL.readFields(in);
+        airportID.readFields(in);
+        isFlightData.readFields(in);
     }
 
     @Override
     //It serializes object data into byte stream data
     public void write(DataOutput out) throws IOException
     {
-        ipaddress.write(out);
-        timestamp.write(out);
-        reqDate.write(out);
-        reqNo.write(out);
-        siteURL.write(out);
+        airportID.write(out);
+        isFlightData.write(out);
     }
 
     @Override
-    public int compareTo(WebLogWritable o)
+    public int compareTo(KeyWritableComparable o)
     {
         if (ipaddress.compareTo(o.ipaddress)==0)
         {

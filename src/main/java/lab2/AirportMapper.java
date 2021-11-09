@@ -14,7 +14,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, Text, IntWritable>
         String[] columns = inputLine.split(",");
 
         if (key.get() != 0) {
-            context.write(new KeyWritableComparable(Integer.parseInt(columns[0]), 0), new AirportListWritable());
+            context.write(new KeyWritableComparable(Integer.parseInt(columns[0]), 0), new AirportListWritable(Integer.parseInt(columns[0]), columns[1]));
         }
     }
 }

@@ -28,10 +28,4 @@ public class AirportListWritable implements Writable {
         airportId = in.readInt();
         airportName = in.readLine();
     }
-
-    public static AirportListWritable read(DataInput in) throws IOException {
-        AirportListWritable w = new AirportListWritable();
-        w.readFields(in);
-        return w;
-    }
 }

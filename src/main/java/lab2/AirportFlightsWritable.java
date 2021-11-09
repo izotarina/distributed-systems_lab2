@@ -20,10 +20,4 @@ public class AirportFlightsWritable {
         isCanceled = in.readBoolean();
         delayTime = in.readInt();
     }
-
-    public static AirportFlightsWritable read(DataInput in) throws IOException {
-        AirportFlightsWritable w = new AirportFlightsWritable();
-        w.readFields(in);
-        return w;
-    }
 }

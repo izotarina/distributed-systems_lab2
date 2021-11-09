@@ -10,8 +10,9 @@ public class AirportListWritable implements Writable {
     private int airportId;
     private String airportName;
 
-    public AirportListWritable() {
-        
+    public AirportListWritable(int airportId, String airportName) {
+        this.airportId = airportId;
+        this.airportName = airportName;
     }
 
     public void write(DataOutput out) throws IOException {

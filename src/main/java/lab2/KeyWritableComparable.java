@@ -1,8 +1,10 @@
 package lab2;
 
+import java.io.IOException;
+
 public class KeyWritableComparable {
-    private Text siteURL, reqDate, timestamp, ipaddress;
-    private IntWritable reqNo;
+    private int airportID;
+    private boolean isFlightData;
 
     //Default Constructor
     public KeyWritableComparable() {}

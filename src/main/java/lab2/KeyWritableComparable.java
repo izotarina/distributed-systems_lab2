@@ -52,6 +52,6 @@ public class KeyWritableComparable {
     @Override
     public int hashCode()
     {
-        return ipaddress.hashCode();
+        return airportID.hashCode();
     }
 }

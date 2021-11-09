@@ -5,20 +5,7 @@ public class KeyWritableComparable {
     private IntWritable reqNo;
 
     //Default Constructor
-    public KeyWritableComparable()
-    {
-        this.siteURL = new Text();
-        this.reqDate = new Text();
-        this.timestamp = new Text();
-        this.ipaddress = new Text();
-        this.reqNo = new IntWritable();
-    }
-
-    //to get IP address from WebLog Record
-    public Text getIp()
-    {
-        return ipaddress;
-    }
+    public KeyWritableComparable() {}
 
     @Override
     //overriding default readFields method.

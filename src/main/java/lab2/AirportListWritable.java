@@ -10,6 +10,10 @@ public class AirportListWritable implements Writable {
     private int airportId;
     private String airportName;
 
+    public AirportListWritable() {
+        
+    }
+
     public void write(DataOutput out) throws IOException {
         out.writeInt(airportId);
         out.writeChars(airportName);

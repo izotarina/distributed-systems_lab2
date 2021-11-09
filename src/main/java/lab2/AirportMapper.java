@@ -11,7 +11,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, Text, IntWritable>
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String inputLine = value.toString();
-        String[] words = inputLine.split("[\\p{Punct}\\p{Space}—]");
+        String[] columns = inputLine.split(",");
         for (String word: words) {
             word = word.toLowerCase();
             context.write(new Text(word),new IntWritable(1));

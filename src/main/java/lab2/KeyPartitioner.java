@@ -1,4 +1,4 @@
 package lab2;
 
-public class KeyPartitioner {
+public class KeyPartitioner extends {
 }

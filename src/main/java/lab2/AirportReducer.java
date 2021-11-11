@@ -12,11 +12,14 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
     @Override
     protected void reduce(KeyWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         Iterator<Text> iterator = values.iterator();
-        String airportName = iterator.next();
+        String airportName = iterator.next().toString();
+        int counter = 0;
+
         while (iterator.hasNext()) {
-            iterator.next();
-            count++;
+            int newValue = Integer.parseiterator.next().toString();
+            counter++;
         }
+
         context.write(key, new LongWritable(count));
     }
 }

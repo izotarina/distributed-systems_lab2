@@ -11,6 +11,7 @@ import java.util.Iterator;
 public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, Text> {
     @Override
     protected void reduce(KeyWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
+        Iterator<>
         long count = 0;
         Iterator<IntWritable> iterator = values.iterator();
         while (iterator.hasNext()) {

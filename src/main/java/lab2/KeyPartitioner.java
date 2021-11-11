@@ -1,4 +1,6 @@
 package lab2;
 
-public class KeyPartitioner extends {
+import org.apache.hadoop.mapreduce.Partitioner;
+
+public class KeyPartitioner extends Partitioner {
 }

@@ -22,6 +22,7 @@ public class AirportDelayApp {
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, AirportMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, FlightsMapper.class);
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
+        job.setPartitionerClass(KeyPartitioner.class);
         job.setReducerClass(WordReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);

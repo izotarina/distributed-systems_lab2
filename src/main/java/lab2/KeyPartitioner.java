@@ -1,2 +1,4 @@
-package lab2;public class KeyPartitioner {
+package lab2;
+
+public class KeyPartitioner {
 }

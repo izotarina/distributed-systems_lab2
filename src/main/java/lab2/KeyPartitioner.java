@@ -5,5 +5,7 @@ import org.apache.hadoop.mapreduce.Partitioner;
 
 public class KeyPartitioner extends Partitioner<KeyWritableComparable, Text> {
     @Override
-    public int getPartition(KeyWritableComparable key, Text text, )
+    public int getPartition(KeyWritableComparable key, Text text, int countPartitions) {
+        
+    }
 }

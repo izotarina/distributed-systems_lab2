@@ -24,7 +24,7 @@ public class AirportDelayApp {
         FileOutputFormat.setOutputPath(job, new Path(args[2]));
         job.setPartitionerClass(KeyPartitioner.class);
         job.setGroupingComparatorClass(AirportGroupingComparator.class);
-        job.setReducerClass(WordReducer.class);
+        job.setReducerClass(AirportReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         job.setNumReduceTasks(2);

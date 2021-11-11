@@ -15,11 +15,15 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
         String airportName = iterator.next().toString();
         int counter = 0;
         float sumDelay = 0;
-        int minDelay 
+        int minDelay = Integer.MAX_VALUE;
+        int maxDelay = 0;
 
         while (iterator.hasNext()) {
             int newValue = Integer.parseInt(iterator.next().toString());
             counter++;
+            sumDelay += newValue;
+            minDelay = Math.min(newValue, minDelay);
+            maxDelay = Math.max(newValue, maxDelay);
         }
 
         context.write(key, new LongWritable(count));

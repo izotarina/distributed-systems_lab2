@@ -26,6 +26,9 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
             maxDelay = Math.max(newValue, maxDelay);
         }
 
+        if (counter > 0) {
+
+        }
         context.write(key, new LongWritable(count));
     }
 }

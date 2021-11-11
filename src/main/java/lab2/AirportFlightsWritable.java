@@ -23,13 +23,13 @@ public class AirportFlightsWritable implements Writable {
 
     public void write(DataOutput out) throws IOException {
         out.writeInt(airportId);
-        out.writeBoolean(isCanceled);
+        out.writeInt(isCanceled);
         out.writeInt(delayTime);
     }
 
     public void readFields(DataInput in) throws IOException {
         airportId = in.readInt();
-        isCanceled = in.readBoolean();
+        isCanceled = in.readInt();
         delayTime = in.readInt();
     }
 }

@@ -14,9 +14,11 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
         Iterator<Text> iterator = values.iterator();
         String airportName = iterator.next().toString();
         int counter = 0;
+        float sumDelay = 0;
+        int minDelay 
 
         while (iterator.hasNext()) {
-            int newValue = Integer.parseiterator.next().toString();
+            int newValue = Integer.parseInt(iterator.next().toString());
             counter++;
         }
 

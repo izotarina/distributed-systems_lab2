@@ -1,18 +1,17 @@
 package lab2;
 
 import org.apache.hadoop.io.WritableComparable;
+import org.apache.hadoop.io.WritableComparator;
 
-public class AirportGroupingComparator {
+public class AirportGroupingComparator extends WritableComparator {
     public AirportGroupingComparator(){
         super(KeyWritableComparable.class);
     }
 
     @Override
     public int compare(WritableComparable o, WritableComparable o2){
-        System.out.println("in compare");
-        Movie m = (Movie)o;
-        Movie m2 = (Movie)o2;
-        System.out.println(m.compareTo(m2));
-        return m.movieId.compareTo(m2.movieId);
+        KeyWritableComparable m = (KeyWritableComparable)o;
+        KeyWritableComparable m2 = (KeyWritableComparable)o2;
+        return m.getAirportID().compareTo(m2.getAirportID());
     }
 }

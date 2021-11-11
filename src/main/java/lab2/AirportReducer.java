@@ -27,8 +27,9 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
         }
 
         if (counter > 0) {
+            float average = sumDelay / counter;
+            context.write(new Text(airportName), new Text(count));
 
         }
-        context.write(key, new LongWritable(count));
     }
 }

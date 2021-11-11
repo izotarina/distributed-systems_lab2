@@ -15,6 +15,10 @@ public class KeyWritableComparable implements WritableComparable<KeyWritableComp
         this.isFlightData = isFlightData;
     }
 
+    public int getAirportID() {
+        return airportID;
+    }
+
     @Override
     public void readFields(DataInput in) throws IOException {
         airportID = in.readInt();

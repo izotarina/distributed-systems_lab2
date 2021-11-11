@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, Text> {
     @Override
-    protected void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+    protected void reduce(KeyWritableComparable values, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
         long count = 0;
         Iterator<IntWritable> iterator = values.iterator();
         while (iterator.hasNext()) {

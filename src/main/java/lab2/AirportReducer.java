@@ -13,8 +13,8 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
         String airportName = iterator.next().toString();
         int counter = 0;
         float sumDelay = 0;
-        int minDelay = Integer.MAX_VALUE;
-        int maxDelay = 0;
+        float minDelay = Integer.MAX_VALUE;
+        float maxDelay = 0;
 
         while (iterator.hasNext()) {
             int newValue = Integer.parseInt(iterator.next().toString());
@@ -26,7 +26,7 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
 
         if (counter > 0) {
             float average = sumDelay / counter;
-            context.write(new Text(airportName), new Text(String.format("min: %d, avg: %f, max: %d", minDelay, average, maxDelay)));
+            context.write(new Text(airportName), new Text(String.format("min: %f, avg: %f, max: %f", minDelay, average, maxDelay)));
         }
     }
 }

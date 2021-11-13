@@ -1,7 +1,5 @@
 package lab2;
 
-import org.apache.hadoop.io.IntWritable;
-import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
@@ -28,8 +26,7 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
 
         if (counter > 0) {
             float average = sumDelay / counter;
-            context.write(new Text(airportName), new Text(count));
-
+            context.write(new Text(airportName), new Text(String.format("min: %d, avg: %f, max: %d", minDelay, average, maxDelay)));
         }
     }
 }

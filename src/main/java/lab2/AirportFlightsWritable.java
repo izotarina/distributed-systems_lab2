@@ -8,10 +8,10 @@ import java.io.IOException;
 
 public class AirportFlightsWritable implements Writable {
     private int airportId;
-    private int isCanceled;
+    private float isCanceled;
     private float delayTime;
 
-    public AirportFlightsWritable(int airportId, int isCanceled, float delayTime) {
+    public AirportFlightsWritable(int airportId, float isCanceled, float delayTime) {
         this.airportId = airportId;
         this.isCanceled = isCanceled;
         this.delayTime = delayTime;
@@ -23,13 +23,13 @@ public class AirportFlightsWritable implements Writable {
 
     public void write(DataOutput out) throws IOException {
         out.writeInt(airportId);
-        out.writeInt(isCanceled);
+        out.writeFloat(isCanceled);
         out.writeFloat(delayTime);
     }
 
     public void readFields(DataInput in) throws IOException {
         airportId = in.readInt();
-        isCanceled = in.readInt();
+        isCanceled = in.readFloat();
         delayTime = in.readFloat();
     }
 }

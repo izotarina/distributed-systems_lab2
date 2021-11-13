@@ -15,7 +15,7 @@ public class FlightsMapper extends Mapper<LongWritable, Text, KeyWritableCompara
         if (key.get() != 0) {
             context.write(
                     new KeyWritableComparable(Integer.parseInt(columns[14]), 1),
-                    new Text(String.valueOf(new AirportFlightsWritable(Integer.parseInt(columns[14]), Integer.parseInt(columns[19]), Float.parseFloat(columns[18])).getDelayTime()))
+                    new Text(String.valueOf(new AirportFlightsWritable(Integer.parseInt(columns[14]), Float.parseFloat(columns[19]), Float.parseFloat(columns[18])).getDelayTime()))
             );
         }
     }

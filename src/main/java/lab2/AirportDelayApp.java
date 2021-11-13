@@ -16,7 +16,7 @@ public class AirportDelayApp {
         /*Creating Filesystem object with the configuration*/
         FileSystem fs = FileSystem.get(conf);
         /*Check if output path (args[1])exist or not*/
-        if(fs.exists(new Path(args[1]))){
+        if(fs.exists(new Path(args[2]))){
             /*If exist delete the output path*/
             fs.delete(new Path(args[2]),true);
         }

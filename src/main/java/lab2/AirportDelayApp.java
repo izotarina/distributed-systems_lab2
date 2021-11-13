@@ -35,6 +35,8 @@ public class AirportDelayApp {
         job.setPartitionerClass(KeyPartitioner.class);
         job.setGroupingComparatorClass(AirportGroupingComparator.class);
         job.setReducerClass(AirportReducer.class);
+        job.setMapOutputKeyClass(KeyWritableComparable.class);
+        job.setMapOutputValueClass(Text.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
         job.setNumReduceTasks(2);

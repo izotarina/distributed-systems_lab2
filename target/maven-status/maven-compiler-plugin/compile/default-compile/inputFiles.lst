@@ -1,0 +1,9 @@
+/home/irina/IdeaProjects/distributedSystems/lab2/src/main/java/lab2/AirportDelayApp.java
+/home/irina/IdeaProjects/distributedSystems/lab2/src/main/java/lab2/AirportMapper.java
+/home/irina/IdeaProjects/distributedSystems/lab2/src/main/java/lab2/FlightsMapper.java
+/home/irina/IdeaProjects/distributedSystems/lab2/src/main/java/lab2/AirportFlightsWritable.java
+/home/irina/IdeaProjects/distributedSystems/lab2/src/main/java/lab2/AirportGroupingComparator.java
+/home/irina/IdeaProjects/distributedSystems/lab2/src/main/java/lab2/AirportReducer.java
+/home/irina/IdeaProjects/distributedSystems/lab2/src/main/java/lab2/KeyWritableComparable.java
+/home/irina/IdeaProjects/distributedSystems/lab2/src/main/java/lab2/KeyPartitioner.java
+/home/irina/IdeaProjects/distributedSystems/lab2/src/main/java/lab2/AirportListWritable.java

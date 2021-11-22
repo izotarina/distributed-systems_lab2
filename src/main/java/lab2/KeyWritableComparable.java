@@ -10,6 +10,8 @@ public class KeyWritableComparable implements WritableComparable<KeyWritableComp
     private int airportID;
     private int isFlightData;
 
+    public KeyWritableComparable() {}
+
     public KeyWritableComparable(int airportID, int isFlightData) {
         this.airportID = airportID;
         this.isFlightData = isFlightData;

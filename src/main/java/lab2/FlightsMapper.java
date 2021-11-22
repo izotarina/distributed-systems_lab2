@@ -13,11 +13,15 @@ public class FlightsMapper extends Mapper<LongWritable, Text, KeyWritableCompara
         String[] columns = inputLine.split(",");
 
         if (key.get() != 0) {
-            context.write(
-                    new KeyWritableComparable(Integer.parseInt(columns[14]), 1),
-                    new Text(String.valueOf(new AirportFlightsWritable(Integer.parseInt(columns[14]), columns[19].length() > 0 ? Float.parseFloat(columns[19]) : 0,
-                            columns[18].length() > 0 ? Float.parseFloat(columns[18]) : 0).getDelayTime()))
-            );
+            float delayTime = new AirportFlightsWritable(Integer.parseInt(columns[14]), columns[19].length() > 0 ? Float.parseFloat(columns[19]) : 0,
+                    columns[18].length() > 0 ? Float.parseFloat(columns[18]) : 0).getDelayTime();
+
+            if (delayTime > 0) {
+                context.write(
+                        new KeyWritableComparable(Integer.parseInt(columns[14]), 1),
+                        new Text(String.valueOf(delayTime))
+                );
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
                 continue;
             }
 
-            int newValue = Integer.parseInt(value);
+            float newValue = Float.parseFloat(value);
             counter++;
             sumDelay += newValue;
             minDelay = Math.min(newValue, minDelay);

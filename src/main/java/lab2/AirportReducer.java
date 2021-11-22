@@ -10,7 +10,7 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
     @Override
     protected void reduce(KeyWritableComparable key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         Iterator<Text> iterator = values.iterator();
-        String airportName = iterator.next().toString();
+        String airportName = "";
         int counter = 0;
         float sumDelay = 0;
         float minDelay = Integer.MAX_VALUE;

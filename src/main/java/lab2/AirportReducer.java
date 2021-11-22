@@ -18,7 +18,8 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
         float maxDelay = 0;
 
         while (iterator.hasNext()) {
-            if (!NumberUtils.isParsable)
+            
+            if (!NumberUtils.isParsable())
             int newValue = Integer.parseInt(iterator.next().toString());
             counter++;
             sumDelay += newValue;

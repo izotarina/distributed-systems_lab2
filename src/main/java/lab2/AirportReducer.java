@@ -1,5 +1,6 @@
 package lab2;
 
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
@@ -17,6 +18,7 @@ public class AirportReducer extends Reducer<KeyWritableComparable, Text, Text, T
         float maxDelay = 0;
 
         while (iterator.hasNext()) {
+            if (!NumberUtils.isParsable)
             int newValue = Integer.parseInt(iterator.next().toString());
             counter++;
             sumDelay += newValue;

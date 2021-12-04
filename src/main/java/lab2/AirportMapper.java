@@ -18,13 +18,17 @@ public class AirportMapper extends Mapper<LongWritable, Text, KeyWritableCompara
         String[] columns = inputLine.split(DELIMITER);
 
         if (key.get() != 0) {
-            int airportCode = Integer.parseInt(columns[AIRPORT_CODE_COLUMN_INDEX].substring(1, columns[AIRPORT_CODE_COLUMN_INDEX].length() - 1));
-            String airportName = columns[AIRPORT_NAME_COLUMN_INDEX].substring(1, columns[AIRPORT_NAME_COLUMN_INDEX].length() - 1);
+            int airportCode = Integer.parseInt(getStringWithoutQuotes(columns[AIRPORT_CODE_COLUMN_INDEX]));
+            String airportName = getStringWithoutQuotes(columns[AIRPORT_NAME_COLUMN_INDEX]);
 
             context.write(
                     new KeyWritableComparable(airportCode, AIRPORT_DATA_FLAG),
                     new Text(new AirportListWritable(airportCode, airportName).getAirportName())
             );
         }
+    }
+
+    private static String getStringWithoutQuotes(String string) {
+        return string.substring(1, string.length() - 1);
     }
 }

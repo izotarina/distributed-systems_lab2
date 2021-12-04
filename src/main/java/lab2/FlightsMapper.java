@@ -20,8 +20,8 @@ public class FlightsMapper extends Mapper<LongWritable, Text, KeyWritableCompara
 
         if (key.get() != 0) {
             float delayTime = new AirportFlightsWritable(Integer.parseInt(columns[AIRPORT_COLUMN_INDEX]),
-                    columns[IS_CANCELLED_COLUMN_INDEX].length() > 0 ? Float.parseFloat(columns[IS_CANCELLED_COLUMN_INDEX]) : 0,
-                    columns[DELAY_COLUMN_INDEX].length() > 0 ? Float.parseFloat(columns[DELAY_COLUMN_INDEX]) : 0).getDelayTime();
+                    getValidNumber(columns[IS_CANCELLED_COLUMN_INDEX]),
+                    getValidNumber(columns[DELAY_COLUMN_INDEX])).getDelayTime();
 
             if (delayTime > 0) {
                 context.write(
@@ -30,5 +30,9 @@ public class FlightsMapper extends Mapper<LongWritable, Text, KeyWritableCompara
                 );
             }
         }
+    }
+
+    private static float getValidNumber(String value) {
+        return value.length() > 0 ? Float.parseFloat(value) : 0;
     }
 }

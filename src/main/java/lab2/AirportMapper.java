@@ -29,6 +29,6 @@ public class AirportMapper extends Mapper<LongWritable, Text, KeyWritableCompara
     }
 
     private static String getStringWithoutQuotes(String string) {
-        return string.substring(1, string.length() - 1);
+        return string.replace("\"", "");
     }
 }

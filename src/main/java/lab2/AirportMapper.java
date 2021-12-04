@@ -16,10 +16,12 @@ public class AirportMapper extends Mapper<LongWritable, Text, KeyWritableCompara
         String[] columns = inputLine.split(",");
 
         if (key.get() != 0) {
+            int airportCode = Integer.parseInt(columns[AIRPORT_CODE_COLUMN_INDEX].substring(1, columns[AIRPORT_CODE_COLUMN_INDEX].length() - 1));
+            String airportName = columns[AIRPORT_NAME_COLUMN_INDEX].substring(1, columns[AIRPORT_NAME_COLUMN_INDEX].length() - 1);
+
             context.write(
-                    new KeyWritableComparable(Integer.parseInt(columns[0].substring(1, columns[0].length() - 1)), 0),
-                    new Text(new AirportListWritable(Integer.parseInt(columns[0].substring(1, columns[0].length() - 1)),
-                            columns[1].substring(1, columns[1].length() - 1)).getAirportName())
+                    new KeyWritableComparable(airportCode, 0),
+                    new Text(new AirportListWritable(airportCode, airportName).getAirportName())
             );
         }
     }

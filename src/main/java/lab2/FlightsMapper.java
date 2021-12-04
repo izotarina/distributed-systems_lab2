@@ -10,11 +10,13 @@ public class FlightsMapper extends Mapper<LongWritable, Text, KeyWritableCompara
     private final static int AIRPORT_COLUMN_INDEX = 14;
     private final static int DELAY_COLUMN_INDEX = 18;
     private final static int IS_CANCELLED_COLUMN_INDEX = 19;
+    private final static String DELIMITER = ",";
+    private final static int FLIGHT_DATA_FLAG = 1;
 
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String inputLine = value.toString();
-        String[] columns = inputLine.split(",");
+        String[] columns = inputLine.split(DELIMITER);
 
         if (key.get() != 0) {
             float delayTime = new AirportFlightsWritable(Integer.parseInt(columns[AIRPORT_COLUMN_INDEX]),
@@ -23,7 +25,7 @@ public class FlightsMapper extends Mapper<LongWritable, Text, KeyWritableCompara
 
             if (delayTime > 0) {
                 context.write(
-                        new KeyWritableComparable(Integer.parseInt(columns[AIRPORT_COLUMN_INDEX]), 1),
+                        new KeyWritableComparable(Integer.parseInt(columns[AIRPORT_COLUMN_INDEX]), FLIGHT_DATA_FLAG),
                         new Text(String.valueOf(delayTime))
                 );
             }

@@ -7,6 +7,9 @@ import org.apache.hadoop.mapreduce.Mapper;
 import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, Text, KeyWritableComparable, Text> {
+    private final static int AIRPORT_CODE_COLUMN_INDEX = 0;
+    private final static int AIRPORT_NAME_COLUMN_INDEX = 1;
+
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String inputLine = value.toString();

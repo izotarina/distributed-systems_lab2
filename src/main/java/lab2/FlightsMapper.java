@@ -10,6 +10,7 @@ public class FlightsMapper extends Mapper<LongWritable, Text, KeyWritableCompara
     private final static int AIRPORT_COLUMN_INDEX = 14;
     private final static int DELAY_COLUMN_INDEX = 18;
     private final static int IS_CANCELLED_COLUMN_INDEX = 19;
+
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String inputLine = value.toString();
